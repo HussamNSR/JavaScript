@@ -97,8 +97,52 @@ function agecalc (el)  //(call-back function)
 {
     return 2019-el;
 }
-
-
 var age = arraycalc(years, agecalc);
+
+
+// Function returning another function
+function interviewQuestion(job){
+    if (job === 'designer'){
+        return function(name){
+            console.log(name + ' can you please explain UX design is?');
+        }
+    }
+    
+    else{
+        return function(name){
+            console.log('Hello' + name + ' what do you do?');
+    }
+}
+}
+
+// function call
+   var teacherQuestion = interviewQuestion('designer');
+    teacherQuestion('hussam');
+
+// another way to call the function
+interviewQuestion('designer')('hussam');
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
