@@ -77,3 +77,28 @@ var selena = Object.create(personProto,
     Birth: {value: 1992},   
 })
 
+
+//Passing functions as arrgument (array manubilation function)
+var years = [1990,1992,1999];
+
+function arraycalc(arr, fun)
+
+{
+    var arrRes = [];
+    for(var i = 0; i< arr.length; i++)
+        {
+          arrRes.push(fun(arr[i]));
+        }
+    return arrRes;
+}
+
+
+function agecalc (el)  //(call-back function)
+{
+    return 2019-el;
+}
+
+
+var age = arraycalc(years, agecalc);
+
+
