@@ -123,6 +123,13 @@ function interviewQuestion(job){
 interviewQuestion('designer')('hussam');
     
     
+//immediate invoked function expression
+// used to protect variables to not be used as global scope variable (create new scope that is hiddin from outside scope)
+
+(function() {
+  var foo = "bar";
+  console.log(foo);
+})();
 
 
 
