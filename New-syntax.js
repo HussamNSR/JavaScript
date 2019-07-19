@@ -5,7 +5,7 @@ document.getElementById('id').textContent = '0';
 document.querySelector('#class').textContent = '0';
 
 // generate random number 
-rand = Math.floor(Math.random());
+rand = Math.floor(Math.random() * 6) + 1
 
 //change CSS style
 document.querySelector('.dice1').style.display='none';
@@ -79,7 +79,7 @@ var selena = Object.create(personProto,
 
 
 //Passing functions as arrgument (array manubilation function)
-var years = [1990,1992,1999];
+var years = [2005,1992,1999];
 
 function arraycalc(arr, fun)
 
@@ -97,7 +97,20 @@ function agecalc (el)  //(call-back function)
 {
     return 2019-el;
 }
+
+function isFull (limit,el)  //(call-back function)
+{
+    return el >= limit;
+}
+
 var age = arraycalc(years, agecalc);
+
+var germanAge = arraycalc(age, isFull.bind(this,18));
+
+
+console.log(age);
+console.log(germanAge);
+
 
 
 // Function returning another function
@@ -122,26 +135,70 @@ function interviewQuestion(job){
 // another way to call the function
 interviewQuestion('designer')('hussam');
     
-    
+ 
+
+
+
 //immediate invoked function expression
 // used to protect variables to not be used as global scope variable (create new scope that is hiddin from outside scope)
 
 (function() {
-  var foo = "bar";
+  var  = "bar";
   console.log(foo);
 })();
 
 
 
+//Ex for IIFE use  
+//A closure is a function having access to the parent scope, even after the parent function has closed.
+var add = (function () {
+  var counter = 0;
+  return function () {counter += 1; return counter}
+})();
+
+add();
+add();
+add();        // the counter is now 3
 
 
 
 
 
+// Bind, call and apply
+var john = {
+    name: 'john',
+    Birth: 1992,
+    job: 'engineer',
+    presentation: function(style,time){
+        if(style === 'formal'){
+            console.log('hello ladys and jentlemen my name is ' + this.name + ' and iam '+ this.job + ' have a nice ' + time);
+        }
+        
+        else if(style === 'friendly'){
+            console.log('hey wussap!! my name is ' + this.name + ' and iam '+ this.job + ' have a nice ' + time);
+        }
+    }   
+};
+var ema = {
+    name: 'ema',
+    Birth: 1996,
+    job: 'nurse',
+    
+};
 
 
+//use call to borrow presentation method
+
+john.presentation.call(ema, 'friendly', 'morning')
+    
+ //use Bind
+var johnfriendly = john.presentation.bind(john, 'friendly');
+johnfriendly('night');
 
 
+//use call & Bind
+var emaFormal = john.presentation.bind(ema, 'formal');
+emaFormal('night');
 
 
 
