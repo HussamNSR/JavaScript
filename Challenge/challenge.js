@@ -44,13 +44,20 @@ Questions();
 
 
 //the correct solotion
- 
+
+
+(function (){ //we used IIFE to protect our variables (change from global context to private context)
+
+    
+    
 //creating function constructor
 function Questions(question, answers, correct){
     this.question = question;
     this.answers = answers;
     this.correct = correct;
 }
+    
+    
 
 // method to diplay the question and the answer
 Questions.prototype.displayQuestion = function()
@@ -62,19 +69,35 @@ Questions.prototype.displayQuestion = function()
     }
 }
 
+
+
 // method to check if the answer is right or not
-Questions.prototype.checkAns = function(ans)
+Questions.prototype.checkAns = function(ans,callback)
     {
-        if(ans === this.correct){
-            console.log('Great, correct ');
-        }
+    var sc;
     
-    else{
-        console.log('sorry, your answer is wrong. try again ');
+    if(ans == this.correct)
+    {
+        console.log('\n Great, correct. lets try another question \n ');
+        sc = callback(true);
+        this.displayScore(sc);
+       
     }
     
+    else
+    {
+        console.log('\n sorry, your answer is wrong. lets try another question \n ');
+        sc = callback(false);
+        this.displayScore(sc);
+    } 
     }
 
+Questions.prototype.displayScore = function(sum)
+    {
+        console.log('your score is: '+ sum);
+        console.log('--------------------------------');
+    }
+    
 //creating objects (questions)
 q1 = new Questions('what is the best language?', ['js', 'python', 'java'], 0);
 q2 = new Questions('what is yhe best course in js?', ['udemy', 'alzerro', 'udacity'], 0);
@@ -82,23 +105,43 @@ q3 = new Questions('who is the best constructor in js?', ['osama', 'abdallah', '
 
 
 var questions = [q1, q2, q3];
-rand = Math.floor(Math.random() * questions.length) ;
+    
+var score = (function count()
+{
+    var counter = 0;
+    return function(correct){
+        if (correct){
+        counter+=1;
+        }
+     return counter   
+    }
+})();
+    
+    
+function next(){
 
+var rand = Math.floor(Math.random() * questions.length) ;
 questions[rand].displayQuestion();
-var x = parseInt(prompt('please choose the correct answer'));
-
-questions[rand].checkAns(x);
-
+x = prompt('please choose the correct answer');
 
     
+    if (x != 'exit'){
+        questions[rand].checkAns(x,score);    
+        next();
+        
+    }
+    
+    else {console.log('see you');}
+   }
     
     
 
-
-
-
-
-
+  
+next();
+    
+})();
+    
+    
 
 
 
