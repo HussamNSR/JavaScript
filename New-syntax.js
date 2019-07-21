@@ -187,6 +187,34 @@ var ema = {
 };
 
 
+
+
+//creating module ..you can connect modules by passing them as an arguments to a seperate module
+var budgetController = (function() {
+    
+    var x = 23; // private variable
+    
+    var add = function(a) {  //private function
+        return x + a;
+    }
+    
+    return {                       // returning object to be used publically ( budgetController is simply an obj containing 1 method)
+        publicTest: function(b) {
+            console.log(add(b));
+        }
+    }
+})(); 
+
+
+
+
+
+
+
+
+
+
+
 //use call to borrow presentation method
 
 john.presentation.call(ema, 'friendly', 'morning')
