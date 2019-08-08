@@ -4,6 +4,13 @@ document.getElementById('id').textContent = '0';
 //changing content of HTML element according to class
 document.querySelector('#class').textContent = '0';
 
+//click listener
+document.querySelector('.id').addEventListener('click',function);
+
+
+//change listener
+document.querySelector('.id').addEventListener('change',function);
+
 // generate random number 
 rand = Math.floor(Math.random() * 6) + 1
 
@@ -209,12 +216,6 @@ var budgetController = (function() {
 
 
 
-
-
-
-
-
-
 //use call to borrow presentation method
 
 john.presentation.call(ema, 'friendly', 'morning')
@@ -230,7 +231,61 @@ emaFormal('night');
 
 
 
+//array + foreach
 
+clearFields: function(){
+             var field, arrField;
+             
+             field = document.querySelectorAll(DOMstrings.inputDescription + ', ' + DOMstrings.inputValue);
+             
+             arrField = Array.prototype.slice.call(field);
+             
+             arrField.forEach(function(current, index, array){
+                 current.value = '';
+             });
+             
+             //point to desc field when finish
+             arrField[0].focus();
+
+}
+
+
+ // once we click on delete butn we get the id of the deleted item
+        
+itemId = event.target.parentNode.parentNode.parentNode.parentNode.id;
+
+
+//remove html element
+ element = document.getElementById(itemId);
+ element.parentNode.removeChild(element);
+
+
+//delete array item
+ array.splice(index,1);
+
+
+//map function: extract updated array from existed one
+
+var x =  oldArray.map(function(current){
+            return current*2; }); 
+
+
+
+// edit array and return new one
+var ids =  data.allItems[type].map(function(current){
+            return current.id; });  
+
+
+// number format
+var num = 3.4544;
+num.toFixed(2) // num  = 3.46,,, 2.toFixed(2) = 2.00
+
+var num = '23457';
+num.substr(0,2); // = '23'
+
+
+// date object
+date = new Date ()
 
 
 
