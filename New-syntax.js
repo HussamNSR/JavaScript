@@ -272,7 +272,7 @@ var x =  oldArray.map(function(current){
 
 
 // edit array and return new one
-var ids =  data.allItems[type].map(function(current){
+var ids =  ARR.map(function(current){
             return current.id; });  
 
 
@@ -288,6 +288,156 @@ num.substr(0,2); // = '23'
 date = new Date ()
 
 
+// querySelectorAll (change the color for all selected fields)
+var nodeList = document.querySelectorAll('.id');
+//change it to an array
+var arr = Array.prototype.slice.call(node);
+arr.forEach(function(curr){
+    curr.style.background = 'red';
+} )
+
+
+
+//////////////////// ES6
+
+
+
+let x = 3;  //can be changed. 
+const name = 'hussam';  //can not be changed.
+const age = 30;   
+
+
+//IIFE In ES6
+
+{
+    let x = 3;
+    const z = 2;
+}
+
+
+//template leterals in Strings
+using back teck `` istead of '' and use ${variable}
+
+console.log(`this is ${name}. i'm ${age} years old`);
+
+``.startsWith('');
+``.endsWith('')
+``.includes('')
+``.repeat(# of times)
+          
+          
+          
+// arrow function  =>
+
+let year = [1992,1994,1996];
+          
+let age = year.map((el, index) => {2019 - el}); // returns a list of ages
+
+          
+ // we use arrow function in case of reserving 'this' keyword and use it inside a function within a method
+
+const obj = { name: 'hussam',
+              age: 30,
+              func = function(){
+             document.querySelector(...).addEventListener('click', (args) => {console.log(this.name)})
+            }
+    
+}
+
+
+
+//Destructuring(extractung data from obj or array and store it in variables)
+
+//array
+const[name, age] =['hussam', 27];
+
+//obj
+const obj ={
+    name1: 'hussam',
+    age1: 27,
+}
+const{name1, age1} = obj;
+// if you want to change varaible name >>
+const{name1: a, age1: b} = obj;
+
+
+//returned value
+function calcAgeAndRet(y){
+    const age = new date().getFullYear() - y;
+    return [age, 65 - age]
+}
+const [age2, ret]  = calcAgeAndRet(1992);
+    
+    
+    
+// querySelectorAll (change the color for all selected fields)
+var nodeList = document.querySelectorAll('.id');
+Array.from(nodeList).forEach(cur => {
+    cur.style.background = 'red';
+} )
+
+
+//For Of
+for(const cur of arr){};
+
+//Find index method (check which is +18 age )
+ages = [12, 11, 10, 21];
+ages.findIndex(cur => cur >= 18); //returns an index
+//find method
+ages.find(cur => cur >= 18); // returns a value
+
+
+// spread operator ...
+function addAges(a,b,c,d){
+    return a+b+c+d
+}
+const ages = [20,10,19,28];
+addAges(...ages);
+
+x = ['q', 'b'];
+y = ['v', 'm'];
+xy = [...x, ...y]; // xy = ['q', 'b', 'v', 'm'];
+
+
+
+//Rest parameters..flexible parameters
+function isFullAge(limit, ...years){
+    years.forEach(cur => (2019-cur) >= limit);
+    
+}
+isFullAge(18, 1992, 1999, 2000, 1980);
+
+
+//Default parameters. (when ags are less than parameters you can set a default value for the non specified parameters)
+function para (x, y, z, e = 3, c = 2){}; // e and c have default values
+
+
+
+
+// MAPS... it's an array of dictionaries [{key=>value}, {key=>value}]
+
+dic = new Map(); 
+dic.set(key, value) // add new key
+dic.get(key)        // get key value
+dic.delete(key)
+dic.has(key)
+dic.clear()         // clear the entire map
+
+// you can apply forEach method
+dic.forEach((value, key) =>)
+
+// you can use it in for of loop
+for(let [key,value] of dic.entries()){};
+
+
+
+
+
+
+
+
+
+    
 
 
 
