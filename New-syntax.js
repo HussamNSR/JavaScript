@@ -115,7 +115,7 @@ var age = arraycalc(years, agecalc);
 var germanAge = arraycalc(age, isFull.bind(this,18));
 
 
-console.log(age);
+console.log(age); 
 console.log(germanAge);
 
 
@@ -431,7 +431,43 @@ for(let [key,value] of dic.entries()){};
 
 
 
+//Classes in ES6  //Note: properties are not implemented here
 
+class ClassName {
+     constructor(name, birth, job){     
+         this.name = name;
+         this.birth = birth;
+         this.job = job;
+     }
+    
+    method1(){
+        
+    }
+    
+    //static class
+    static func(){};
+}
+
+// create class instanse
+const hussam = new ClassName('hussam', 1992, 'engineer');
+// insert instances in a list
+const allObj = [new ClassName('hussam', 1992, 'engineer'),new ClassName('ahmed', 1995, 'engineer') ]
+
+//Inherritance
+
+class subClass extends ClassName{
+    constructor(name, birth, job, nickName, car){
+    super(name, birth, job);
+    this.nickName = nickName;
+    this.car = car;
+    }
+    
+    method2(){};    
+}
+
+
+//array SUMMER
+ arr.reduce((prev, cur, index) => prev + cur, 0)//[1,1,1,1] ==> 4
 
 
 
